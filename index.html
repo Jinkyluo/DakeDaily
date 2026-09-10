@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Daily · 全球市场简报</title>
+<style>html,body{margin:0;background:#f7f8f5}iframe{display:block;width:100%;height:100vh;border:0}</style></head><body>
+<iframe id="report" title="市场简报"></iframe><noscript><a href="us-morning-2026-09-09.html">美股早报</a> · <a href="a-share-2026-09-09.html">A 股收盘</a></noscript>
+<script src="markets.js"></script><script>
+const frame=document.getElementById('report');
+function selectMarket(){const key=location.hash==='#cn'?'cn':'us';frame.title=key==='us'?'美股早报':'A 股收盘简报';frame.src=window.dailyMarkets[key].path;}
+frame.addEventListener('load',()=>{
+ const doc=frame.contentDocument;const edition=doc.querySelector('.hero .edition');if(!edition)return;
+ const key=location.hash==='#cn'?'cn':'us';edition.replaceChildren();edition.setAttribute('aria-label','市场选择');
+ for(const market of ['us','cn']){const button=doc.createElement('button');button.type='button';button.textContent=(market==='us'?'美股早报':'A 股收盘')+' · '+window.dailyMarkets[market].date.slice(5).replace('-','.');button.setAttribute('aria-pressed',String(market===key));button.addEventListener('click',()=>{location.hash=market;});edition.append(button);}
+ const style=doc.createElement('style');style.textContent='.edition button{flex:1;white-space:nowrap}.edition{min-width:280px}@media(max-width:760px){.edition{width:100%;min-width:0}.edition button{padding:11px 8px}}';doc.head.append(style);
+});
+window.addEventListener('hashchange',selectMarket);selectMarket();
+</script></body></html>
