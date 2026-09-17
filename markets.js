@@ -1,4 +1,4 @@
 window.dailyMarkets = {
-  us: {path: 'us-morning-2026-09-16.html', date: '2026-09-16'},
+  us: {path: 'us-morning-2026-09-17.html', date: '2026-09-17'},
   cn: {path: 'a-share-2026-09-16.html', date: '2026-09-16'}
 };
