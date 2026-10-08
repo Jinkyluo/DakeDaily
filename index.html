@@ -2,7 +2,7 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Daily · 全球市场简报</title>
 <style>html,body{margin:0;background:#f7f8f5}iframe{display:block;width:100%;height:100vh;border:0}</style></head><body>
 <iframe id="report" title="市场简报"></iframe><noscript><a href="us-morning-2026-09-09.html">美股早报</a> · <a href="a-share-2026-09-09.html">A 股收盘</a></noscript>
-<script src="markets.js"></script><script>
+<script src="markets.js?v=20261008"></script><script>
 const frame=document.getElementById('report');
 function selectMarket(){const key=location.hash==='#cn'?'cn':'us';frame.title=key==='us'?'美股早报':'A 股收盘简报';frame.src=window.dailyMarkets[key].path;}
 frame.addEventListener('load',()=>{
